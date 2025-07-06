@@ -2,7 +2,7 @@ name: Call Supabase Function Every 6 Minutes
 
 on:
   schedule:
-    - cron: "*/6 * * * *"
+    - cron: "*/6 * * * *"  # каждые 6 минут
   workflow_dispatch:
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Call Supabase Function
         run: |
-          curl -X POST https://<PROJECT_ID>.functions.supabase.co/<FUNCTION_NAME> \
+          curl -X POST https://bnvjqjbhhrrvgicrcpyv.functions.supabase.co/rotate-bridges \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_KEY }}" \
           -H "Content-Type: application/json" \
           --data '{}'
